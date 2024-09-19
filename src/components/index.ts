@@ -1,6 +1,6 @@
 import AuthSignIn from "./AuthSignIn";
 import AuthSignOut from "./AuthSignOut";
-import ErrorElement from "./ErrorElement";
+import ErrorElement from "./error-boundary/ErrorElement";
 
 export {
     AuthSignIn,

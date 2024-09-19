@@ -17,9 +17,8 @@
 }
 
 body {
-    background-color: $purple-light;
+    height: auto;
+    min-height: 100vh;
 
-        @media (prefers-color-scheme: light) {
-            background-color: $purple;
-        }
+    width: 100%;
 }

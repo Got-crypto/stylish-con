@@ -5,12 +5,12 @@ import './index.scss'
 
 import { ClerkProvider } from '@clerk/clerk-react'
 import App from './App.tsx'
-import { About, Authentication } from "./pages"
+import { Authentication } from "./pages"
 
 const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if(!publishableKey) {
-  console.error("Publishable key not found")
+  throw new Error("missing publishable key");
 }
 
 const routes = createBrowserRouter([
@@ -21,17 +21,20 @@ const routes = createBrowserRouter([
     children: [
       {
         path: 'first',
-        element: <p>First Element</p>
+        element: <p>First Element</p>,
+        errorElement: <ErrorElement />
       },
       {
         path: 'second',
-        element: <p>Second Element</p>
+        element: <p>Second Element</p>,
+        errorElement: <ErrorElement />
       }
     ]
   },
   {
     path: 'auth',
     element: <Authentication />,
+    errorElement: <ErrorElement />,
     children: [
       {
         path: 'signin',
@@ -43,11 +46,6 @@ const routes = createBrowserRouter([
       }
     ]
   },
-  {
-    path: '/about',
-    element: <About />,
-    errorElement: <ErrorElement />
-  }
 ])
 
 createRoot(document.getElementById('root')!).render(

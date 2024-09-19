@@ -1,8 +1,7 @@
-import About from "./About";
-import Authentication from "./Authentication";
-import Home from "./Home";
+import Authentication from "./authentication/Authentication";
+import Home from "./home/Home";
 
 export {
-    About, Authentication, Home
+    Authentication, Home
 };
 

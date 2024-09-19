@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { AuthSignIn, AuthSignOut, ErrorElement } from './components'
+import { AuthSignIn, AuthSignOut, Dashboard, ErrorElement } from './components'
 import './index.scss'
 
 import { ClerkProvider } from '@clerk/clerk-react'
@@ -20,16 +20,11 @@ const routes = createBrowserRouter([
     errorElement: <ErrorElement />,
     children: [
       {
-        path: 'first',
-        element: <p>First Element</p>,
-        errorElement: <ErrorElement />
+        path: 'home',
+        element: <Dashboard />,
+        errorElement: <ErrorElement />,
       },
-      {
-        path: 'second',
-        element: <p>Second Element</p>,
-        errorElement: <ErrorElement />
-      }
-    ]
+    ],
   },
   {
     path: 'auth',

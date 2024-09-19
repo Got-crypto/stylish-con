@@ -1,0 +1,35 @@
+@import "../../variables.scss";
+
+@media (prefers-color-scheme: light) {
+    .white-logo {
+        display: none;
+    }
+    .black-logo {
+        display: block;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .black-logo {
+        display: none;
+    }
+    .white-logo {
+        display: block;
+    }
+}
+
+header {
+    width: 100%;
+    padding: 4px;
+
+    @include flexRow(space-between, center);
+
+    .black-logo, .white-logo {
+        width: 100px;
+    }
+
+    button {
+        .icon {
+            
+        }
+    }
+}

@@ -6,12 +6,12 @@ $purple-white: #EBD3F8;
 @mixin flexCol($justify: center, $align: center) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: $justify;
+    align-items: $align;
 }
 @mixin flexRow($justify: center, $align: center) {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: $justify;
+    align-items: $align;
 }

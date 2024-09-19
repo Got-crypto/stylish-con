@@ -1,10 +1,11 @@
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ErrorElement from './components/ErrorElement.tsx'
+import { AuthSignIn, AuthSignOut, ErrorElement } from './components'
 import './index.scss'
 
+import { ClerkProvider } from '@clerk/clerk-react'
 import App from './App.tsx'
-import { About } from "./pages"
+import { About, Authentication } from "./pages"
 
 const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -29,6 +30,20 @@ const routes = createBrowserRouter([
     ]
   },
   {
+    path: 'auth',
+    element: <Authentication />,
+    children: [
+      {
+        path: 'signin',
+        element: <AuthSignIn />,
+      },
+      {
+        path: 'signout',
+        element: <AuthSignOut />,
+      }
+    ]
+  },
+  {
     path: '/about',
     element: <About />,
     errorElement: <ErrorElement />
@@ -36,5 +51,7 @@ const routes = createBrowserRouter([
 ])
 
 createRoot(document.getElementById('root')!).render(
-  <RouterProvider router={routes} />
+  <ClerkProvider publishableKey={publishableKey}>
+    <RouterProvider router={routes} />
+  </ClerkProvider>
 )

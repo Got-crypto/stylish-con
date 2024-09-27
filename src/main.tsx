@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { AuthSignIn, AuthSignOut, Dashboard, ErrorElement } from './components'
 import './index.scss'
 
-import { ClerkProvider } from '@clerk/clerk-react'
-import { ConvexProvider, ConvexReactClient } from 'convex/react'
+import { ClerkProvider, useAuth } from '@clerk/clerk-react'
+import { ConvexReactClient } from 'convex/react'
+import { ConvexProviderWithClerk } from 'convex/react-clerk'
 
 import App from './App.tsx'
 import { Authentication } from "./pages"
@@ -48,8 +49,8 @@ const routes = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <ClerkProvider publishableKey={publishableKey}>
-    <ConvexProvider client={convex}>
+    <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
       <RouterProvider router={routes} />
-    </ConvexProvider>
+    </ConvexProviderWithClerk>
   </ClerkProvider>
 )

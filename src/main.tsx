@@ -4,10 +4,13 @@ import { AuthSignIn, AuthSignOut, Dashboard, ErrorElement } from './components'
 import './index.scss'
 
 import { ClerkProvider } from '@clerk/clerk-react'
+import { ConvexProvider, ConvexReactClient } from 'convex/react'
+
 import App from './App.tsx'
 import { Authentication } from "./pages"
 
 const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL)
 
 if(!publishableKey) {
   throw new Error("missing publishable key");
@@ -45,6 +48,8 @@ const routes = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <ClerkProvider publishableKey={publishableKey}>
-    <RouterProvider router={routes} />
+    <ConvexProvider client={convex}>
+      <RouterProvider router={routes} />
+    </ConvexProvider>
   </ClerkProvider>
 )

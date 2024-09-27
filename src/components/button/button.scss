@@ -7,3 +7,8 @@
 .secondary-button {
     background-color: gray;
 }
+
+.user-btns {
+    @include flexRow();
+    gap: 4px;
+}

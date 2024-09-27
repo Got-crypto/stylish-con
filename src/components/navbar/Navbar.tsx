@@ -1,12 +1,12 @@
 import { useAuth, useClerk } from "@clerk/clerk-react"
 
-import { CgUserlane } from "react-icons/cg"
+import { CgShoppingCart, CgUserlane } from "react-icons/cg"
 import { Button } from "../../components"
 import "./navbar.scss"
 
 export default function Navbar() {
     const {isLoaded, isSignedIn} = useAuth()
-    const {openSignIn} = useClerk()
+    const {openSignIn, user} = useClerk()
   return (
     <header>
         <img src="./stylish-black.png" className="black-logo" alt="" />
@@ -14,8 +14,12 @@ export default function Navbar() {
 
         <div className="auth-btns">
             {isLoaded ? (
-                isSignedIn ? (
-                    <p>user buttons</p>
+                !isSignedIn ? (
+                    <div className="user-btns">
+                        <p>{user?.fullName}</p>
+                        <span>3</span>
+                        <CgShoppingCart size={30} className="icon" />
+                    </div>
                 ) : (
                     <Button isPrimary handleOnClick={() => openSignIn({path: '/auth/signin',})}>
                         <p>Sign in</p>

@@ -1,0 +1,50 @@
+@import "../../variables.scss";
+
+$radius: 8px;
+$border: 2px solid white;
+
+.container {
+
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    gap: 8px;
+
+    height: 50px;
+
+    .input {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        .icon-button {
+            height: 50px;
+            @include flexCol();
+
+            border-top: $border;
+            border-left: $border;
+            border-bottom: $border;
+
+            border-radius: $radius 0 0 $radius;
+        }
+        
+        input {
+            border: none;
+            border-top: $border;
+            border-right: $border;
+            border-bottom: $border;
+            border-radius: 0 $radius $radius 0;
+            outline: none;
+        }
+
+        &:focus-within {
+            outline: 2px solid orchid;
+            border-radius: $radius;
+        }
+    }
+
+    button {
+        background-color: rgba(255, 255, 255, 0.548);
+        
+        @media(prefers-color-scheme: light) {
+            background-color: rgba(36, 36, 36, 0.548);
+        }
+    }
+}

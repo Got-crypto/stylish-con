@@ -17,8 +17,8 @@ export default function ErrorElement() {
   
   return (
     <div className="error-boundary">
-      <h1>{`${routeError.status}: ${routeError.statusText}`}</h1>
-      <p>{routeError.error.message}</p>
+      <h1>{`${routeError?.status}: ${routeError?.statusText}`}</h1>
+      <p>{routeError?.error?.message}</p>
     </div>
   )
 }

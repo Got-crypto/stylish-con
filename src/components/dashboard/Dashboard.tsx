@@ -1,8 +1,13 @@
+import { Categories, Products, SearchInput } from "../"
+
+import "./dashboard.scss"
 
 export default function Dashboard() {
   return (
-    <div>
-      <span>phewww!</span>
+    <div className="dashboard">
+      <SearchInput />
+      <Categories />
+      <Products />
     </div>
   )
 }

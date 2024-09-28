@@ -2,6 +2,6 @@ import "./products.scss"
 
 export default function Products() {
   return (
-    <div>Products</div>
+    <div className="products">Products</div>
   )
 }

@@ -1,7 +1,10 @@
-import "./products.scss"
+
+import "./products.scss";
 
 export default function Products() {
   return (
-    <div className="products">Products</div>
+    <div className="products">
+      <p>products</p>
+    </div>
   )
 }

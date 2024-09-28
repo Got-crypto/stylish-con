@@ -1,1 +1,34 @@
 @import "../../variables.scss";
+
+.categories {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+
+    height: 50px;
+
+    .category {
+        grid-column: span 1;
+        background-color: orchid;
+        border-radius: 100px;
+
+        cursor: pointer;
+    }
+
+    .active {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        grid-column: span 2;
+        background-color: $purple;
+
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    span {
+        height: 40px;
+        border-radius: 100%;
+        @include flexCol();
+    }
+}

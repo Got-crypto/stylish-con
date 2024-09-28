@@ -8,24 +8,24 @@ import "./categories.scss"
 export default function Categories() {
   const [categories, setCategories] = useState([
     {
-      name: 'Popular',
+      name: 'Offers',
       isActive: true,
-      icon: <FaFire size={25} />
+      icon: <FaFire size={25} className="icon" />
     },
     {
       name: 'Tops',
       isActive: false,
-      icon: <IoShirtSharp size={25} />
+      icon: <IoShirtSharp size={25} className="icon" />
     },
     {
       name: 'Bottoms',
       isActive: false,
-      icon: <PiPantsFill size={25} />
+      icon: <PiPantsFill size={25} className="icon" />
     },
     {
       name: 'Shoes',
       isActive: false,
-      icon: <GiConverseShoe size={25} />
+      icon: <GiConverseShoe size={25} className="icon" />
     }
   ])
 
